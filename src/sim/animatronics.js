@@ -1,7 +1,7 @@
 // The four behaviour rules. Each character is countered by a *different* player action,
 // which is what turns the night into a juggling act instead of one repeated move:
 //   Velvet -- the door.            Chica  -- the door, but she taxes your battery.
-//   Foxy   -- watching him.        Freddy -- NOT watching him.
+//   Fexy   -- watching them.       Freddy -- NOT watching him.
 
 import * as C from './constants.js';
 import { nextRoom, prevRoom } from './map.js';
@@ -130,25 +130,26 @@ export function stepFreddy(state, ai) {
   if (c.room !== before) state.events.push('freddy.laugh');
 }
 
-// --- Foxy -------------------------------------------------------------------
-// His timer only advances while you are NOT looking at Pirate Cove. Watching resets it.
-// Once he sprints there is no grace window -- he is the punishment for camera neglect.
-export function stepFoxy(state, ai) {
-  const f = state.chars.foxy;
+// --- Fexy -------------------------------------------------------------------
+// Their timer only advances while you are NOT looking at Pirate Cove. Watching resets
+// it. Once they sprint there is no grace window -- they are the punishment for camera
+// neglect.
+export function stepFexy(state, ai) {
+  const f = state.chars.fexy;
 
   if (f.runT !== null) {
     f.runT -= state.dt;
     if (f.runT <= 0) {
       f.runT = null;
       if (!state.doors.left) {
-        kill(state, 'foxy');
+        kill(state, 'fexy');
       } else {
         f.bangs++;
-        const cost = Math.min(C.FOXY_BANG_BASE + f.bangs, C.FOXY_BANG_MAX);
+        const cost = Math.min(C.FEXY_BANG_BASE + f.bangs, C.FEXY_BANG_MAX);
         state.power = Math.max(0, state.power - cost);
         f.stage = 0;
         f.timer = 0;
-        state.events.push('foxy.bang');
+        state.events.push('fexy.bang');
       }
     }
     return;
@@ -167,9 +168,9 @@ export function stepFoxy(state, ai) {
   if (!rollMove(state, ai)) return;
 
   f.stage++;
-  state.events.push('foxy.stage');
+  state.events.push('fexy.stage');
   if (f.stage >= 3) {
-    f.runT = C.FOXY_RUN_TIME;
-    state.events.push('foxy.run');
+    f.runT = C.FEXY_RUN_TIME;
+    state.events.push('fexy.run');
   }
 }

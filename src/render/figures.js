@@ -1,7 +1,7 @@
 // The four silhouettes. They are normally seen dark and low-contrast down a hallway, so
 // each gets exactly ONE unmistakable shape cue rather than fine detail:
 //   Velvet -- tall upright ears.   Chica -- wide body and a split beak.
-//   Freddy -- top hat and bow tie. Foxy   -- pointed muzzle, eyepatch, hook.
+//   Freddy -- top hat and bow tie. Fexy   -- pointed muzzle, eyepatch, hook.
 // Drawn in a unit space 200 tall with the origin at the feet, then scaled by the caller.
 
 import { FIG } from './palette.js';
@@ -171,8 +171,8 @@ function freddy(ctx, pose) {
   if (pose === 'scare') teeth(ctx, 0, -104, 36, 6);
 }
 
-function foxy(ctx, pose) {
-  const c = FIG.foxy;
+function fexy(ctx, pose) {
+  const c = FIG.fexy;
   const dark = pose === 'menace';
   ctx.fillStyle = dark ? '#1d0e0c' : c.body;
   // lean frame
@@ -228,7 +228,7 @@ function foxy(ctx, pose) {
   if (pose === 'scare') teeth(ctx, -20, -112, 34, 7);
 }
 
-const DRAW = { freddy, velvet, chica, foxy };
+const DRAW = { freddy, velvet, chica, fexy };
 
 export function drawFigure(ctx, id, x, y, scale, pose) {
   const fn = DRAW[id];

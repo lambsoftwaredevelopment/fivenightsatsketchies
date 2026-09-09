@@ -39,9 +39,9 @@ rather than one repeated move:
 - **Chica** — the same on the right, but she only leaves half the time, so she squats at
   a closed door banging on it and **draining extra power**. She is why camping both
   doors loses.
-- **Foxy** — his timer only advances while you are *not* watching Pirate Cove. Neglect
-  him and he sprints; at an open door that is instant death, and a closed door costs
-  power. **He punishes ignoring the cameras.**
+- **Fexy** — their timer only advances while you are *not* watching Pirate Cove.
+  Neglect them and they sprint; at an open door that is instant death, and a closed
+  door costs power. **They punish ignoring the cameras.**
 - **Freddy** — cannot move on any frame where the cameras are up *and* showing his
   current room. **He punishes watching too much.** He laughs when he moves, which is the
   only warning you get, and he is the one who comes for you when the power runs out.

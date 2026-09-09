@@ -120,37 +120,37 @@ test('Chica taxes the battery while leaning on a closed door', () => {
 
 // --- Camera-coupled behaviour ----------------------------------------------
 
-test('watching Pirate Cove freezes Foxy', () => {
-  const s = isolate(createGame({ night: 5, seed: 11 }), 'foxy');
+test('watching Pirate Cove freezes Fexy', () => {
+  const s = isolate(createGame({ night: 5, seed: 11 }), 'fexy');
   advance(s, 60, { ...IDLE, camsUp: true, camId: 'CAM1C' });
-  eq(s.chars.foxy.stage, 0, 'never advanced');
-  eq(s.chars.foxy.timer, 0, 'timer held at zero');
+  eq(s.chars.fexy.stage, 0, 'never advanced');
+  eq(s.chars.fexy.timer, 0, 'timer held at zero');
 });
 
-test('ignoring Pirate Cove lets Foxy out', () => {
-  const s = isolate(createGame({ night: 5, seed: 11 }), 'foxy');
+test('ignoring Pirate Cove lets Fexy out', () => {
+  const s = isolate(createGame({ night: 5, seed: 11 }), 'fexy');
   advance(s, 60, { ...IDLE, camsUp: true, camId: 'CAM1A' });
-  ok(s.chars.foxy.stage > 0 || s.phase !== 'playing', 'foxy progressed');
+  ok(s.chars.fexy.stage > 0 || s.phase !== 'playing', 'fexy progressed');
 });
 
-test('a closed left door costs power but survives Foxy', () => {
-  const s = isolate(createGame({ night: 5, seed: 11 }), 'foxy');
-  s.chars.foxy.stage = 3;
-  s.chars.foxy.runT = C.FOXY_RUN_TIME;
+test('a closed left door costs power but survives Fexy', () => {
+  const s = isolate(createGame({ night: 5, seed: 11 }), 'fexy');
+  s.chars.fexy.stage = 3;
+  s.chars.fexy.runT = C.FEXY_RUN_TIME;
   const before = s.power;
-  advance(s, C.FOXY_RUN_TIME + 0.5, { ...IDLE, leftDoor: true });
+  advance(s, C.FEXY_RUN_TIME + 0.5, { ...IDLE, leftDoor: true });
   eq(s.phase, 'playing', 'survived');
-  eq(s.chars.foxy.stage, 0, 'reset to the cove');
+  eq(s.chars.fexy.stage, 0, 'reset to the cove');
   ok(before - s.power >= 2, 'bang drained power');
 });
 
-test('Foxy at an open door kills instantly -- no grace window', () => {
-  const s = isolate(createGame({ night: 5, seed: 11 }), 'foxy');
-  s.chars.foxy.stage = 3;
-  s.chars.foxy.runT = C.FOXY_RUN_TIME;
-  advance(s, C.FOXY_RUN_TIME + 0.5, IDLE);
+test('Fexy at an open door kills instantly -- no grace window', () => {
+  const s = isolate(createGame({ night: 5, seed: 11 }), 'fexy');
+  s.chars.fexy.stage = 3;
+  s.chars.fexy.runT = C.FEXY_RUN_TIME;
+  advance(s, C.FEXY_RUN_TIME + 0.5, IDLE);
   eq(s.phase, 'jumpscare');
-  eq(s.killer, 'foxy');
+  eq(s.killer, 'fexy');
 });
 
 test('watching Freddy stops Freddy', () => {
@@ -215,7 +215,7 @@ test('AI levels escalate across the night and across nights', () => {
   ok(aiLevelsAt(5, 0).velvet > aiLevelsAt(1, 0).velvet, 'night 5 harder than night 1');
   eq(aiLevelsAt(4, 5).freddy, 5, 'freddy capped on night 4');
   eq(aiLevelsAt(5, 5).freddy, 6, 'freddy capped on night 5');
-  eq(aiLevelsAt(5, 5).foxy, 8, 'foxy capped on night 5');
+  eq(aiLevelsAt(5, 5).fexy, 8, 'fexy capped on night 5');
 });
 
 test('the room paths lead to the correct doors', () => {

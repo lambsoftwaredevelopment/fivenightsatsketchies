@@ -267,7 +267,7 @@ function room(ctx, w, h, args) {
     }
     case 'CAM1C': { // Pirate Cove
       roomShell(ctx, w, h, '#141018', '#0b0810');
-      // purple striped curtain, drawn closed; Foxy's stage is layered on at draw time
+      // purple striped curtain, drawn closed; Fexy's stage is layered on at draw time
       ctx.fillStyle = '#3a1f52';
       ctx.fillRect(w * 0.2, h * 0.1, w * 0.6, h * 0.62);
       ctx.fillStyle = '#4a2a66';

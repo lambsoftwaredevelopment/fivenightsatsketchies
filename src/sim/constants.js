@@ -35,7 +35,7 @@ export const INTERVAL = {
   freddy: 3.02,
   velvet: 5.0,
   chica: 5.0,
-  foxy: 5.0,
+  fexy: 5.0,
 };
 
 // How long a character waits at a door before resolving. Deliberately separate from
@@ -52,8 +52,8 @@ export const VELVET_COOLDOWN = 6.0;   // forced pause after being turned away
 export const CHICA_COOLDOWN = 6.0;
 export const CHICA_RETREAT_CHANCE = 0.5;
 export const CHICA_BANG_PERIOD = 2.0;
-export const FOXY_RUN_TIME = 2.5;     // sprint window -- long enough to react to the audio cue
-export const FOXY_BANG_BASE = 1;
-export const FOXY_BANG_MAX = 5;
+export const FEXY_RUN_TIME = 2.5;     // sprint window -- long enough to react to the audio cue
+export const FEXY_BANG_BASE = 1;
+export const FEXY_BANG_MAX = 5;
 
 export const JUMPSCARE_TIME = 1.6;

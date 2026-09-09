@@ -35,14 +35,14 @@ export const SFX = {
     noise(a.ctx, a.bus, a.noiseBuf, { dur: 0.3, gain: 0.4, freq: 190, q: 1.1, sweepTo: 80 });
     tone(a.ctx, a.bus, { type: 'triangle', freq: 140, to: 60, dur: 0.24, gain: 0.2 });
   },
-  foxyBang(a) {
+  fexyBang(a) {
     for (let i = 0; i < 3; i++) {
       noise(a.ctx, a.bus, a.noiseBuf, {
         dur: 0.22, gain: 0.5, freq: 210, q: 1.2, sweepTo: 70, when: i * 0.13,
       });
     }
   },
-  foxyRun(a) {
+  fexyRun(a) {
     for (let i = 0; i < 9; i++) {
       noise(a.ctx, a.bus, a.noiseBuf, {
         dur: 0.1, gain: 0.3, freq: 320, q: 2, sweepTo: 140, when: i * 0.11,

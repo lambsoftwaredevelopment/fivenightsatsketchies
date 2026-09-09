@@ -54,7 +54,7 @@ function occupant(state, side) {
   for (const k of ['freddy', 'velvet', 'chica']) {
     if (state.chars[k].room === room) return k;
   }
-  if (side === 'left' && state.chars.foxy.runT !== null) return 'foxy';
+  if (side === 'left' && state.chars.fexy.runT !== null) return 'fexy';
   return null;
 }
 

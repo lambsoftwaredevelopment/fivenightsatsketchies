@@ -139,8 +139,8 @@ const EVENT_SFX = {
   'chica.move': 'footstep',
   'chica.bang': 'chicaBang',
   'freddy.laugh': 'freddyLaugh',
-  'foxy.run': 'foxyRun',
-  'foxy.bang': 'foxyBang',
+  'fexy.run': 'fexyRun',
+  'fexy.bang': 'fexyBang',
   'power.out': 'powerDown',
   'night.win': 'chime6am',
 };

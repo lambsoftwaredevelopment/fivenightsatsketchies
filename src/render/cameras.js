@@ -32,8 +32,8 @@ function occupants(state, roomId) {
   return out;
 }
 
-function drawFoxyCove(ctx, state, w, h) {
-  const f = state.chars.foxy;
+function drawFexyCove(ctx, state, w, h) {
+  const f = state.chars.fexy;
   if (f.stage === 0) return; // curtain closed, nothing to see
   ctx.save();
   if (f.stage >= 3 || f.runT !== null) {
@@ -49,7 +49,7 @@ function drawFoxyCove(ctx, state, w, h) {
   ctx.clip();
   ctx.fillStyle = '#05050a';
   ctx.fillRect(w * 0.3, h * 0.12, w * 0.4, h * 0.6);
-  drawSprite(ctx, 'foxy', w * 0.5, h * 0.80, h / 380, 'idle');
+  drawSprite(ctx, 'fexy', w * 0.5, h * 0.80, h / 380, 'idle');
   ctx.restore();
 }
 
@@ -71,7 +71,7 @@ export function drawFeed(ctx, state, roomId, t, flipT) {
       const s = spots[i % spots.length];
       drawSprite(ctx, who, VIEW_W * s[0], VIEW_H * s[1], s[2] * 0.9, 'idle');
     });
-    if (roomId === 'CAM1C') drawFoxyCove(ctx, state, VIEW_W, VIEW_H);
+    if (roomId === 'CAM1C') drawFexyCove(ctx, state, VIEW_W, VIEW_H);
   }
   ctx.restore();
 
