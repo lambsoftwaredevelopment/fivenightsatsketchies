@@ -1,0 +1,7 @@
+# No build step and no dependencies -- this is only OS and editor cruft.
+.DS_Store
+Thumbs.db
+*~
+*.swp
+.idea/
+.vscode/
