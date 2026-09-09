@@ -1,6 +1,6 @@
 // The four silhouettes. They are normally seen dark and low-contrast down a hallway, so
 // each gets exactly ONE unmistakable shape cue rather than fine detail:
-//   Freddy -- top hat and bow tie. Fexy   -- pointed muzzle, eyepatch, hook.
+//   Sketchy -- top hat and bow tie. Fexy   -- pointed muzzle, eyepatch, hook.
 // Drawn in a unit space 200 tall with the origin at the feet, then scaled by the caller.
 
 import { FIG } from './palette.js';
@@ -59,7 +59,7 @@ function velvet(ctx, pose) {
   const c = FIG.velvet;
   const dark = pose === 'menace';
   ctx.fillStyle = dark ? '#15121f' : c.body;
-  // ears -- the whole point of his silhouette
+  // ears -- the whole point of their silhouette
   ctx.fillRect(-29, -214, 18, 94);
   ctx.fillRect(11, -214, 18, 94);
   ctx.fillStyle = dark ? '#221c33' : c.dark;
@@ -81,8 +81,8 @@ function velvet(ctx, pose) {
   if (pose === 'scare') teeth(ctx, 0, -96, 34, 6);
 }
 
-function freddy(ctx, pose) {
-  const c = FIG.freddy;
+function sketchy(ctx, pose) {
+  const c = FIG.sketchy;
   const dark = pose === 'menace';
   ctx.fillStyle = dark ? '#17110c' : c.body;
   // broadest of the four
@@ -108,7 +108,7 @@ function freddy(ctx, pose) {
   ctx.beginPath();
   ctx.ellipse(0, -116, 7, 5, 0, 0, Math.PI * 2);
   ctx.fill();
-  // top hat -- his cue
+  // top hat -- their cue
   ctx.fillStyle = c.accent;
   ctx.beginPath();
   ctx.ellipse(0, -158, 40, 8, 0, 0, Math.PI * 2);
@@ -177,7 +177,7 @@ function fexy(ctx, pose) {
   if (pose === 'scare') teeth(ctx, -20, -112, 34, 7);
 }
 
-const DRAW = { freddy, velvet, fexy };
+const DRAW = { sketchy, velvet, fexy };
 
 export function drawFigure(ctx, id, x, y, scale, pose) {
   const fn = DRAW[id];

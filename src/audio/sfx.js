@@ -3,7 +3,7 @@
 
 import { tone, noise } from './synth.js';
 
-// Freddy's toreador march, as a repeating motif rather than the real melody.
+// Sketchy's toreador march, as a repeating motif rather than the real melody.
 const TOREADOR = [
   [523, 0.22], [523, 0.22], [587, 0.22], [659, 0.44],
   [587, 0.22], [523, 0.22], [494, 0.44],
@@ -45,7 +45,7 @@ export const SFX = {
       });
     }
   },
-  freddyLaugh(a) {
+  sketchyLaugh(a) {
     // A descending stutter -- unmistakable, and the only warning he gives.
     for (let i = 0; i < 7; i++) {
       tone(a.ctx, a.bus, {

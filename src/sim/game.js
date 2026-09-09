@@ -6,7 +6,7 @@ import * as C from './constants.js';
 import { makeRng } from '../core/rng.js';
 import { aiLevelsAt } from './night-config.js';
 import { applyDrain, beginBlackout, stepBlackout, computeUsage } from './power.js';
-import { stepVelvet, stepFreddy, stepFexy } from './animatronics.js';
+import { stepVelvet, stepSketchy, stepFexy } from './animatronics.js';
 
 export function createGame({ night = 1, seed = 12345 } = {}) {
   const rng = makeRng(seed);
@@ -24,7 +24,7 @@ export function createGame({ night = 1, seed = 12345 } = {}) {
     lights: { left: false, right: false },
     cams: { up: false, id: 'CAM1A' },
     chars: {
-      freddy: { room: 'CAM1A', timer: 0, cooldown: 0, interval: C.INTERVAL.freddy, doorGrace: C.DOOR_GRACE.freddy },
+      sketchy: { room: 'CAM1A', timer: 0, cooldown: 0, interval: C.INTERVAL.sketchy, doorGrace: C.DOOR_GRACE.sketchy },
       velvet: { room: 'CAM1A', timer: 0, cooldown: 0, interval: C.INTERVAL.velvet, doorGrace: C.DOOR_GRACE.velvet },
       fexy: { stage: 0, timer: 0, bangs: 0, runT: null, room: 'CAM1C', interval: C.INTERVAL.fexy },
     },
@@ -106,7 +106,7 @@ export function stepGame(state, dt, input) {
   }
 
   const ai = aiLevelsAt(state.night, state.hour);
-  stepFreddy(state, ai.freddy);
+  stepSketchy(state, ai.sketchy);
   stepVelvet(state, ai.velvet);
   stepFexy(state, ai.fexy);
 

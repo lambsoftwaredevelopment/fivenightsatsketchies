@@ -1,7 +1,6 @@
-// The four behaviour rules. Each character is countered by a *different* player action,
+// The three behaviour rules. Each character is countered by a *different* player action,
 // which is what turns the night into a juggling act instead of one repeated move:
-//   Velvet -- the door.       Fexy   -- watching them.
-//   Freddy -- NOT watching him.
+//   Velvet -- the door.   Fexy -- watching them.   Sketchy -- NOT watching them.
 
 import * as C from './constants.js';
 import { nextRoom, prevRoom } from './map.js';
@@ -84,24 +83,24 @@ export function stepVelvet(state, ai) {
   });
 }
 
-// --- Freddy -----------------------------------------------------------------
-// Only moves while unobserved: any frame where the cameras are up AND showing his
-// current room, his roll is skipped entirely. He laughs on every successful move,
+// --- Sketchy ----------------------------------------------------------------
+// Only moves while unobserved: any frame where the cameras are up AND showing their
+// current room, their roll is skipped entirely. They laugh on every successful move,
 // which is the only warning the player gets.
-export function stepFreddy(state, ai) {
-  const c = state.chars.freddy;
+export function stepSketchy(state, ai) {
+  const c = state.chars.sketchy;
   const watched = state.cams.up && state.cams.id === c.room;
   if (watched) {
     c.timer = 0;
     return;
   }
   const before = c.room;
-  stepWalker(state, 'freddy', ai, (f) => {
-    const back = prevRoom('freddy', f.room);
+  stepWalker(state, 'sketchy', ai, (f) => {
+    const back = prevRoom('sketchy', f.room);
     if (back) f.room = back;
-    state.events.push('freddy.retreat');
+    state.events.push('sketchy.retreat');
   });
-  if (c.room !== before) state.events.push('freddy.laugh');
+  if (c.room !== before) state.events.push('sketchy.laugh');
 }
 
 // --- Fexy -------------------------------------------------------------------

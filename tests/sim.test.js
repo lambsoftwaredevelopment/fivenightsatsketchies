@@ -105,7 +105,7 @@ test('reaching the door is not instant death -- there is a reaction window', () 
   const s = isolate(createGame({ night: 1, seed: 7 }), 'velvet');
   s.chars.velvet.room = 'DOOR_LEFT';
   s.chars.velvet.timer = 0;
-  advance(s, 4.0, IDLE); // door still open, but his opportunity has not come round
+  advance(s, 4.0, IDLE); // door still open, but their opportunity has not come round
   eq(s.phase, 'playing', 'survives the grace window');
 });
 
@@ -144,16 +144,16 @@ test('Fexy at an open door kills instantly -- no grace window', () => {
   eq(s.killer, 'fexy');
 });
 
-test('watching Freddy stops Freddy', () => {
-  const s = isolate(createGame({ night: 5, seed: 21 }), 'freddy');
+test('watching Sketchy stops Sketchy', () => {
+  const s = isolate(createGame({ night: 5, seed: 21 }), 'sketchy');
   advance(s, 60, { ...IDLE, camsUp: true, camId: 'CAM1A' });
-  eq(s.chars.freddy.room, 'CAM1A', 'pinned while observed');
+  eq(s.chars.sketchy.room, 'CAM1A', 'pinned while observed');
 });
 
-test('looking away lets Freddy move', () => {
-  const s = isolate(createGame({ night: 5, seed: 21 }), 'freddy');
+test('looking away lets Sketchy move', () => {
+  const s = isolate(createGame({ night: 5, seed: 21 }), 'sketchy');
   advance(s, 60, { ...IDLE, camsUp: true, camId: 'CAM4A' });
-  ok(s.chars.freddy.room !== 'CAM1A', 'moved while unobserved');
+  ok(s.chars.sketchy.room !== 'CAM1A', 'moved while unobserved');
 });
 
 // --- Blackout ---------------------------------------------------------------
@@ -172,7 +172,7 @@ test('the blackout sequence ends in a jumpscare', () => {
   s.power = 0.01;
   advance(s, 40, IDLE);
   ok(s.phase === 'jumpscare' || s.phase === 'dead', 'got ' + s.phase);
-  eq(s.killer, 'freddy');
+  eq(s.killer, 'sketchy');
 });
 
 test('reaching 6AM during the blackout still wins', () => {
@@ -202,16 +202,16 @@ test('the hour advances every 90 seconds', () => {
 test('AI levels escalate across the night and across nights', () => {
   eq(aiLevelsAt(1, 0).velvet, 1);
   eq(aiLevelsAt(1, 4).velvet, 4, 'velvet ramps on night 1');
-  eq(aiLevelsAt(1, 0).freddy, 0, 'freddy is dormant on night 1');
+  eq(aiLevelsAt(1, 0).sketchy, 0, 'sketchy is dormant on night 1');
   ok(aiLevelsAt(5, 0).velvet > aiLevelsAt(1, 0).velvet, 'night 5 harder than night 1');
-  eq(aiLevelsAt(4, 5).freddy, 5, 'freddy capped on night 4');
-  eq(aiLevelsAt(5, 5).freddy, 6, 'freddy capped on night 5');
+  eq(aiLevelsAt(4, 5).sketchy, 5, 'sketchy capped on night 4');
+  eq(aiLevelsAt(5, 5).sketchy, 6, 'sketchy capped on night 5');
   eq(aiLevelsAt(5, 5).fexy, 8, 'fexy capped on night 5');
 });
 
 test('the room paths lead to the correct doors', () => {
   eq(nextRoom('velvet', 'CAM2B'), 'DOOR_LEFT');
-  eq(nextRoom('freddy', 'CAM4B'), 'DOOR_RIGHT');
+  eq(nextRoom('sketchy', 'CAM4B'), 'DOOR_RIGHT');
   eq(nextRoom('velvet', 'DOOR_LEFT'), null, 'the door is the end of the path');
 });
 

@@ -1,7 +1,7 @@
 // Scene dispatch. Everything below here reads state and draws; nothing mutates the sim.
 
 import { VIEW_W, VIEW_H } from '../ui/layout.js';
-import { drawOffice, drawBlackoutFreddy } from './office.js';
+import { drawOffice, drawBlackoutSketchy } from './office.js';
 import { drawFeed, drawCamMap, drawCamTab } from './cameras.js';
 import { drawHud, drawControlHint } from './hud.js';
 import { drawMenu, drawIntro, drawJumpscare, drawGameOver, drawWin } from './screens.js';
@@ -24,9 +24,9 @@ function drawBlackout(ctx, app) {
     ctx.globalAlpha = 0.06;
     drawOffice(ctx, s, app.panX, 0);
     ctx.restore();
-    // Flickering blue light on his face, with an occasional dropout.
+    // Flickering blue light on their face, with an occasional dropout.
     const flicker = Math.random() < 0.06 ? 0.15 : 0.75 + Math.random() * 0.25;
-    drawBlackoutFreddy(ctx, app.panX, flicker);
+    drawBlackoutSketchy(ctx, app.panX, flicker);
   }
   // 'snap' and 'silence' stay black on purpose.
 

@@ -51,7 +51,7 @@ function drawLightGlow(ctx, d) {
 // Whoever is standing at this door right now, or null.
 function occupant(state, side) {
   const room = side === 'left' ? 'DOOR_LEFT' : 'DOOR_RIGHT';
-  for (const k of ['freddy', 'velvet']) {
+  for (const k of ['sketchy', 'velvet']) {
     if (state.chars[k].room === room) return k;
   }
   if (side === 'left' && state.chars.fexy.runT !== null) return 'fexy';
@@ -182,8 +182,8 @@ export function drawOffice(ctx, state, panX, blackoutDim) {
   }
 }
 
-// Freddy lit in the left doorway during the blackout -- the only thing on screen.
-export function drawBlackoutFreddy(ctx, panX, flicker) {
+// Sketchy lit in the left doorway during the blackout -- the only thing on screen.
+export function drawBlackoutSketchy(ctx, panX, flicker) {
   const d = DOOR_L;
   ctx.save();
   ctx.translate(-panX, 0);
@@ -198,7 +198,7 @@ export function drawBlackoutFreddy(ctx, panX, flicker) {
   ctx.fillStyle = g;
   ctx.fillRect(d.x, d.y, d.w, d.h);
   ctx.globalAlpha = flicker;
-  drawSprite(ctx, 'freddy', d.x + d.w / 2, d.y + d.h - 20, d.h / 250, 'menace');
+  drawSprite(ctx, 'sketchy', d.x + d.w / 2, d.y + d.h - 20, d.h / 250, 'menace');
   ctx.restore();
   ctx.restore();
 }

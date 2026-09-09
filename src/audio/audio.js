@@ -136,7 +136,7 @@ const EVENT_SFX = {
   'door.open.left': 'doorOpen',
   'door.open.right': 'doorOpen',
   'velvet.move': 'footstep',
-  'freddy.laugh': 'freddyLaugh',
+  'sketchy.laugh': 'sketchyLaugh',
   'fexy.run': 'fexyRun',
   'fexy.bang': 'fexyBang',
   'power.out': 'powerDown',

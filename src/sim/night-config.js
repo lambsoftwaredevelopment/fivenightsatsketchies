@@ -4,7 +4,7 @@
 
 const NIGHTS = {
   1: {
-    base: { freddy: 0, velvet: 1, fexy: 0 },
+    base: { sketchy: 0, velvet: 1, fexy: 0 },
     bumps: {
       2: { velvet: 1 },
       3: { velvet: 1 },
@@ -12,30 +12,30 @@ const NIGHTS = {
     },
   },
   2: {
-    base: { freddy: 1, velvet: 3, fexy: 2 },
+    base: { sketchy: 1, velvet: 3, fexy: 2 },
     bumps: { 3: { velvet: 1 }, 5: { fexy: 1 } },
   },
   3: {
-    base: { freddy: 2, velvet: 5, fexy: 4 },
-    bumps: { 4: { freddy: 1, velvet: 1, fexy: 1 } },
+    base: { sketchy: 2, velvet: 5, fexy: 4 },
+    bumps: { 4: { sketchy: 1, velvet: 1, fexy: 1 } },
   },
   4: {
-    base: { freddy: 3, velvet: 6, fexy: 5 },
+    base: { sketchy: 3, velvet: 6, fexy: 5 },
     bumps: {
-      3: { freddy: 1, velvet: 1, fexy: 1 },
-      5: { freddy: 1, velvet: 1, fexy: 1 },
+      3: { sketchy: 1, velvet: 1, fexy: 1 },
+      5: { sketchy: 1, velvet: 1, fexy: 1 },
     },
-    // Freddy and Fexy are capped: they are the two who force expensive, unavoidable
+    // Sketchy and Fexy are capped: they are the two who force expensive, unavoidable
     // door time, so letting them run free turns the night into a pure power loss.
-    caps: { freddy: 5, fexy: 6 },
+    caps: { sketchy: 5, fexy: 6 },
   },
   5: {
-    base: { freddy: 4, velvet: 8, fexy: 6 },
+    base: { sketchy: 4, velvet: 8, fexy: 6 },
     bumps: {
-      2: { freddy: 1, velvet: 1, fexy: 1 },
-      4: { freddy: 1, velvet: 1, fexy: 1 },
+      2: { sketchy: 1, velvet: 1, fexy: 1 },
+      4: { sketchy: 1, velvet: 1, fexy: 1 },
     },
-    caps: { freddy: 6, fexy: 8 },
+    caps: { sketchy: 6, fexy: 8 },
   },
 };
 

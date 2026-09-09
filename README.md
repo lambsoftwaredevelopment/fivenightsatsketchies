@@ -39,9 +39,10 @@ rather than one repeated move:
 - **Fexy** — their timer only advances while you are *not* watching Pirate Cove.
   Neglect them and they sprint; at an open door that is instant death, and a closed
   door costs power. **They punish ignoring the cameras.**
-- **Freddy** — cannot move on any frame where the cameras are up *and* showing his
-  current room. **He punishes watching too much.** He laughs when he moves, which is the
-  only warning you get, and he is the one who comes for you when the power runs out.
+- **Sketchy** — cannot move on any frame where the cameras are up *and* showing their
+  current room. **They punish watching too much.** They laugh when they move, which is
+  the only warning you get, and they are the one who comes for you when the power runs
+  out.
 
 At 0% power the doors open, the lights die, and the blackout sequence begins. Reaching
 6 AM part-way through it still counts as a win.

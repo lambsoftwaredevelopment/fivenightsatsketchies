@@ -25,7 +25,7 @@ export const AUDIO_ONLY = new Set(['CAM6']);
 
 export const PATHS = {
   velvet: ['CAM1A', 'CAM1B', 'CAM5', 'CAM3', 'CAM2A', 'CAM2B', 'DOOR_LEFT'],
-  freddy: ['CAM1A', 'CAM1B', 'CAM7', 'CAM6', 'CAM4A', 'CAM4B', 'DOOR_RIGHT'],
+  sketchy: ['CAM1A', 'CAM1B', 'CAM7', 'CAM6', 'CAM4A', 'CAM4B', 'DOOR_RIGHT'],
 };
 
 export function nextRoom(charKey, currentRoom) {

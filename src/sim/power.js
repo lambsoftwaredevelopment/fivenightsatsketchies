@@ -41,7 +41,7 @@ export function beginBlackout(state) {
   state.events.push('power.out');
 }
 
-// Dark -> Freddy lit in the left doorway with the toreador march -> snap to black and
+// Dark -> Sketchy lit in the left doorway with the toreador march -> snap to black and
 // silence -> jumpscare. Reaching 6AM part-way through still counts as a win.
 export function stepBlackout(state) {
   const b = state.blackout;
@@ -50,7 +50,7 @@ export function stepBlackout(state) {
   if (b.sub === 'dark' && b.t >= C.BLACKOUT_DARK) {
     b.sub = 'music';
     b.t = 0;
-    state.events.push('freddy.toreador');
+    state.events.push('sketchy.toreador');
   } else if (b.sub === 'music' && b.t >= b.musicLen) {
     b.sub = 'snap';
     b.t = 0;
@@ -59,9 +59,9 @@ export function stepBlackout(state) {
     b.sub = 'silence';
     b.t = 0;
   } else if (b.sub === 'silence' && b.t >= b.silenceLen) {
-    state.killer = 'freddy';
+    state.killer = 'sketchy';
     state.phase = 'jumpscare';
     state.jumpscareT = 0;
-    state.events.push('jumpscare.freddy');
+    state.events.push('jumpscare.sketchy');
   }
 }

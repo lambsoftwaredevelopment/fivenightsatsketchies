@@ -27,12 +27,12 @@ export function drawMenu(ctx, save, t, muted) {
   ctx.fillStyle = '#06060a';
   ctx.fillRect(0, 0, VIEW_W, VIEW_H);
 
-  // Freddy looming out of the bottom-right dark -- clear of the title and the buttons.
+  // Sketchy looming out of the bottom-right dark -- clear of the title and the buttons.
   ctx.save();
   // The 'idle' plate, not 'menace': a near-black body at low alpha leaves only the white
   // eyes visible, which reads as an artefact rather than a figure.
   ctx.globalAlpha = 0.30 + Math.sin(t * 0.7) * 0.05;
-  drawSprite(ctx, 'freddy', VIEW_W - 190, VIEW_H + 250, 3.0, 'idle');
+  drawSprite(ctx, 'sketchy', VIEW_W - 190, VIEW_H + 250, 3.0, 'idle');
   ctx.restore();
 
   centerText(ctx, 'FIVE NIGHTS', VIEW_W / 2, 150, 'bold 74px Georgia, serif', '#c8c0a8');
@@ -101,7 +101,7 @@ export function drawJumpscare(ctx, killer, t) {
   );
   // Occasional roll, so it never looks like a static image.
   ctx.rotate((Math.random() - 0.5) * 0.05);
-  drawSprite(ctx, killer || 'freddy', 0, HEAD_UP * lunge, lunge, 'scare');
+  drawSprite(ctx, killer || 'sketchy', 0, HEAD_UP * lunge, lunge, 'scare');
   ctx.restore();
 
   // Strobing static and a red wash, both pulsing rather than constant.
