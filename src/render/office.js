@@ -51,7 +51,7 @@ function drawLightGlow(ctx, d) {
 // Whoever is standing at this door right now, or null.
 function occupant(state, side) {
   const room = side === 'left' ? 'DOOR_LEFT' : 'DOOR_RIGHT';
-  for (const k of ['freddy', 'velvet', 'chica']) {
+  for (const k of ['freddy', 'velvet']) {
     if (state.chars[k].room === room) return k;
   }
   if (side === 'left' && state.chars.fexy.runT !== null) return 'fexy';

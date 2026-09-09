@@ -28,7 +28,7 @@ Then open <http://localhost:8000/>. Tests are at <http://localhost:8000/test.htm
 Survive from 12 AM to 6 AM — nine real minutes — on a battery that will not last if you
 use it carelessly. **Doors and lights are locked out while the cameras are up.**
 
-## The four of them
+## The three of them
 
 Each one is beaten by a *different* action, which is what makes the night a juggling act
 rather than one repeated move:
@@ -36,9 +36,6 @@ rather than one repeated move:
 - **Velvet** — comes down the west hall to the left door. Immune to the cameras; the
   door is the only answer. Reaching your door is not instant death: you get one
   door-grace window (5s) to flick the light and react.
-- **Chica** — the same on the right, but she only leaves half the time, so she squats at
-  a closed door banging on it and **draining extra power**. She is why camping both
-  doors loses.
 - **Fexy** — their timer only advances while you are *not* watching Pirate Cove.
   Neglect them and they sprint; at an open door that is instant death, and a closed
   door costs power. **They punish ignoring the cameras.**

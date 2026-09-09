@@ -1,7 +1,7 @@
 // The four behaviour rules. Each character is countered by a *different* player action,
 // which is what turns the night into a juggling act instead of one repeated move:
-//   Velvet -- the door.            Chica  -- the door, but she taxes your battery.
-//   Fexy   -- watching them.       Freddy -- NOT watching him.
+//   Velvet -- the door.       Fexy   -- watching them.
+//   Freddy -- NOT watching him.
 
 import * as C from './constants.js';
 import { nextRoom, prevRoom } from './map.js';
@@ -81,32 +81,6 @@ export function stepVelvet(state, ai) {
     c.room = backOff('velvet', c.room, 2);
     c.cooldown = C.VELVET_COOLDOWN;
     state.events.push('velvet.retreat');
-  });
-}
-
-// --- Chica ------------------------------------------------------------------
-// Same door logic, but she only leaves half the time -- so she squats at a closed door
-// and bleeds your battery. She is the reason a "just hold both doors" run dies early.
-export function stepChica(state, ai) {
-  const c = state.chars.chica;
-
-  if (c.room === 'DOOR_RIGHT' && state.doors.right) {
-    c.bangTimer += state.dt;
-    if (c.bangTimer >= C.CHICA_BANG_PERIOD) {
-      c.bangTimer -= C.CHICA_BANG_PERIOD;
-      state.events.push('chica.bang');
-    }
-  } else {
-    c.bangTimer = 0;
-  }
-
-  stepWalker(state, 'chica', ai, (ch) => {
-    if (state.rng.chance(C.CHICA_RETREAT_CHANCE)) {
-      ch.room = backOff('chica', ch.room, 2);
-      ch.cooldown = C.CHICA_COOLDOWN;
-      state.events.push('chica.retreat');
-    }
-    // Otherwise she stays put and keeps draining.
   });
 }
 

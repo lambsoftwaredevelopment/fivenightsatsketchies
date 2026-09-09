@@ -16,7 +16,7 @@ const ROOM_H = 540;
 
 function figures() {
   const out = {};
-  for (const id of ['freddy', 'velvet', 'chica', 'fexy']) {
+  for (const id of ['freddy', 'velvet', 'fexy']) {
     for (const pose of ['idle', 'menace', 'scare']) {
       out['fig.' + id + '.' + pose] = {
         src: PROCEDURAL, gen: 'figure', w: FIG_W, h: FIG_H, args: { id, pose },

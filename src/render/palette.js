@@ -29,6 +29,5 @@ export const P = {
 export const FIG = {
   freddy: { body: '#4a3524', dark: '#2a1d14', accent: '#1a1a20' },
   velvet: { body: '#4a3f6b', dark: '#2a2440', accent: '#c04a6a' },
-  chica: { body: '#c9b046', dark: '#7d6c25', accent: '#e08a2a' },
   fexy: { body: '#6b2a24', dark: '#3d1714', accent: '#c9b8a0' },
 };

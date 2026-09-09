@@ -1,6 +1,5 @@
 // The four silhouettes. They are normally seen dark and low-contrast down a hallway, so
 // each gets exactly ONE unmistakable shape cue rather than fine detail:
-//   Velvet -- tall upright ears.   Chica -- wide body and a split beak.
 //   Freddy -- top hat and bow tie. Fexy   -- pointed muzzle, eyepatch, hook.
 // Drawn in a unit space 200 tall with the origin at the feet, then scaled by the caller.
 
@@ -80,56 +79,6 @@ function velvet(ctx, pose) {
   ctx.fillRect(-12, -80, 24, 9); // bow tie
   eyes(ctx, 0, -112, 6.5, pose, '#c04a6a');
   if (pose === 'scare') teeth(ctx, 0, -96, 34, 6);
-}
-
-function chica(ctx, pose) {
-  const c = FIG.chica;
-  const dark = pose === 'menace';
-  ctx.fillStyle = dark ? '#241f0d' : c.body;
-  // wide, squat body
-  ctx.beginPath();
-  ctx.roundRect(-44, -92, 88, 70, 14);
-  ctx.fill();
-  ctx.fillRect(-36, -24, 26, 24);
-  ctx.fillRect(10, -24, 26, 24);
-  ctx.beginPath();
-  ctx.arc(0, -122, 34, 0, Math.PI * 2);
-  ctx.fill();
-  // head spikes
-  ctx.fillStyle = dark ? '#2e2711' : c.dark;
-  for (const dx of [-16, 0, 16]) {
-    ctx.beginPath();
-    ctx.moveTo(dx - 7, -152);
-    ctx.lineTo(dx, -172);
-    ctx.lineTo(dx + 7, -152);
-    ctx.closePath();
-    ctx.fill();
-  }
-  // the split beak
-  ctx.fillStyle = c.accent;
-  ctx.beginPath();
-  ctx.moveTo(-18, -114);
-  ctx.lineTo(18, -114);
-  ctx.lineTo(0, -100);
-  ctx.closePath();
-  ctx.fill();
-  ctx.beginPath();
-  ctx.moveTo(-15, -98);
-  ctx.lineTo(15, -98);
-  ctx.lineTo(0, -88);
-  ctx.closePath();
-  ctx.fill();
-  eyes(ctx, 0, -130, 6, pose, '#e08a2a');
-  // cupcake
-  ctx.fillStyle = '#d8b8c8';
-  ctx.beginPath();
-  ctx.arc(52, -34, 11, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#c07030';
-  ctx.fillRect(42, -28, 20, 16);
-  ctx.fillStyle = '#e8e060';
-  ctx.fillRect(51, -54, 3, 12);
-  if (pose === 'scare') teeth(ctx, 0, -104, 30, 5);
 }
 
 function freddy(ctx, pose) {
@@ -228,7 +177,7 @@ function fexy(ctx, pose) {
   if (pose === 'scare') teeth(ctx, -20, -112, 34, 7);
 }
 
-const DRAW = { freddy, velvet, chica, fexy };
+const DRAW = { freddy, velvet, fexy };
 
 export function drawFigure(ctx, id, x, y, scale, pose) {
   const fn = DRAW[id];

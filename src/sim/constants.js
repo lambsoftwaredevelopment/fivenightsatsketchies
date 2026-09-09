@@ -15,7 +15,6 @@ export const POWER_START = 100.0;
 export let DRAIN_BASE = 0.030;         // %/s just for being here
 export let DRAIN_PER_SYSTEM = 0.068;   // %/s per door / light / camera in use
 export const DOOR_TOGGLE_COST = 0.1;   // % per door close, discourages spamming
-export const CHICA_DOOR_DRAIN = 0.05;  // extra %/s while she leans on a closed door
 
 export function setTuning(o) {
   if (o.DRAIN_BASE !== undefined) DRAIN_BASE = o.DRAIN_BASE;
@@ -34,7 +33,6 @@ export const BLACKOUT_SILENCE_MAX = 6.0;
 export const INTERVAL = {
   freddy: 3.02,
   velvet: 5.0,
-  chica: 5.0,
   fexy: 5.0,
 };
 
@@ -45,13 +43,9 @@ export const INTERVAL = {
 export const DOOR_GRACE = {
   freddy: 6.0,
   velvet: 5.0,
-  chica: 5.0,
 };
 
 export const VELVET_COOLDOWN = 6.0;   // forced pause after being turned away
-export const CHICA_COOLDOWN = 6.0;
-export const CHICA_RETREAT_CHANCE = 0.5;
-export const CHICA_BANG_PERIOD = 2.0;
 export const FEXY_RUN_TIME = 2.5;     // sprint window -- long enough to react to the audio cue
 export const FEXY_BANG_BASE = 1;
 export const FEXY_BANG_MAX = 5;

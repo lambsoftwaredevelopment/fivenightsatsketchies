@@ -109,15 +109,6 @@ test('reaching the door is not instant death -- there is a reaction window', () 
   eq(s.phase, 'playing', 'survives the grace window');
 });
 
-test('Chica taxes the battery while leaning on a closed door', () => {
-  const a = isolate(createGame({ night: 1, seed: 3 }), 'none');
-  const b = isolate(createGame({ night: 1, seed: 3 }), 'none');
-  b.chars.chica.room = 'DOOR_RIGHT';
-  advance(a, 20, { ...IDLE, rightDoor: true });
-  advance(b, 20, { ...IDLE, rightDoor: true });
-  ok(b.power < a.power - 0.9, 'chica costs extra: ' + a.power.toFixed(2) + ' vs ' + b.power.toFixed(2));
-});
-
 // --- Camera-coupled behaviour ----------------------------------------------
 
 test('watching Pirate Cove freezes Fexy', () => {
@@ -220,7 +211,6 @@ test('AI levels escalate across the night and across nights', () => {
 
 test('the room paths lead to the correct doors', () => {
   eq(nextRoom('velvet', 'CAM2B'), 'DOOR_LEFT');
-  eq(nextRoom('chica', 'CAM4B'), 'DOOR_RIGHT');
   eq(nextRoom('freddy', 'CAM4B'), 'DOOR_RIGHT');
   eq(nextRoom('velvet', 'DOOR_LEFT'), null, 'the door is the end of the path');
 });

@@ -15,12 +15,7 @@ export function computeUsage(state) {
 
 export function applyDrain(state) {
   state.usage = computeUsage(state);
-  let rate = C.DRAIN_BASE + (state.usage - 1) * C.DRAIN_PER_SYSTEM;
-
-  // Chica leaning on a sealed door costs extra.
-  if (state.chars.chica.room === 'DOOR_RIGHT' && state.doors.right) {
-    rate += C.CHICA_DOOR_DRAIN;
-  }
+  const rate = C.DRAIN_BASE + (state.usage - 1) * C.DRAIN_PER_SYSTEM;
 
   state.power -= rate * state.dt;
   if (state.power <= 0) {

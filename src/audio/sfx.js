@@ -31,10 +31,6 @@ export const SFX = {
   footstep(a) {
     noise(a.ctx, a.bus, a.noiseBuf, { dur: 0.16, gain: 0.22, freq: 260, q: 1.4, sweepTo: 120 });
   },
-  chicaBang(a) {
-    noise(a.ctx, a.bus, a.noiseBuf, { dur: 0.3, gain: 0.4, freq: 190, q: 1.1, sweepTo: 80 });
-    tone(a.ctx, a.bus, { type: 'triangle', freq: 140, to: 60, dur: 0.24, gain: 0.2 });
-  },
   fexyBang(a) {
     for (let i = 0; i < 3; i++) {
       noise(a.ctx, a.bus, a.noiseBuf, {
