@@ -35,8 +35,8 @@ export function drawMenu(ctx, save, t, muted) {
   drawSprite(ctx, 'freddy', VIEW_W - 190, VIEW_H + 250, 3.0, 'idle');
   ctx.restore();
 
-  centerText(ctx, "FIVE NIGHTS", VIEW_W / 2, 150, 'bold 74px Georgia, serif', '#c8c0a8');
-  centerText(ctx, "AT FREDDY'S", VIEW_W / 2, 226, 'bold 74px Georgia, serif', '#c8c0a8');
+  centerText(ctx, 'FIVE NIGHTS', VIEW_W / 2, 150, 'bold 74px Georgia, serif', '#c8c0a8');
+  centerText(ctx, "AT SKETCHY'S", VIEW_W / 2, 226, 'bold 74px Georgia, serif', '#c8c0a8');
   centerText(ctx, 'a clone, built in vanilla JavaScript', VIEW_W / 2, 268,
     '16px ui-monospace, monospace', P.textDim);
 

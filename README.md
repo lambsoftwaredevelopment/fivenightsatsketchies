@@ -1,8 +1,9 @@
-# Five Nights at Freddy's — clone
+# Five Nights at Sketchy's
 
-A Five Nights at Freddy's 1 clone in vanilla JavaScript. No build step, no bundler, no
-npm packages, no external assets — all the art is drawn with Canvas 2D and all the audio
-is synthesized with WebAudio, so the whole game is this one directory.
+A survival horror game in vanilla JavaScript, built in the style of Five Nights at
+Freddy's 1. No build step, no bundler, no npm packages, no external assets — all the art
+is drawn with Canvas 2D and all the audio is synthesized with WebAudio, so the whole
+game is this one directory.
 
 ## Run it
 
