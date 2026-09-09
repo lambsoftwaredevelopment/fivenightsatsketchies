@@ -33,7 +33,7 @@ export const BLACKOUT_SILENCE_MAX = 6.0;
 // --- Animatronics ----------------------------------------------------------
 export const INTERVAL = {
   freddy: 3.02,
-  bonnie: 5.0,
+  velvet: 5.0,
   chica: 5.0,
   foxy: 5.0,
 };
@@ -44,11 +44,11 @@ export const INTERVAL = {
 // so without this he could arrive and kill between two light checks.
 export const DOOR_GRACE = {
   freddy: 6.0,
-  bonnie: 5.0,
+  velvet: 5.0,
   chica: 5.0,
 };
 
-export const BONNIE_COOLDOWN = 6.0;   // forced pause after being turned away
+export const VELVET_COOLDOWN = 6.0;   // forced pause after being turned away
 export const CHICA_COOLDOWN = 6.0;
 export const CHICA_RETREAT_CHANCE = 0.5;
 export const CHICA_BANG_PERIOD = 2.0;

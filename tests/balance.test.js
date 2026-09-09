@@ -14,11 +14,11 @@ const DT = 1 / 20; // coarser than the render step; plenty for balance statistic
 // standing there, and checks Pirate Cove often enough to shut Foxy out before he sprints.
 function carefulBot() {
   const b = {
-    bonnieHold: 0, chicaHold: 0, foxyAlarm: false,
+    velvetHold: 0, chicaHold: 0, foxyAlarm: false,
     camT: 0, lightT: 0, left: false, right: false,
   };
   return (s) => {
-    if (b.bonnieHold > 0) b.bonnieHold -= DT;
+    if (b.velvetHold > 0) b.velvetHold -= DT;
     if (b.chicaHold > 0) b.chicaHold -= DT;
 
     const input = {
@@ -39,7 +39,7 @@ function carefulBot() {
       b.lightT = (b.lightT + DT) % 4;
       if (b.lightT < 0.5) {
         input.leftLight = true;
-        if (s.chars.bonnie.room === 'DOOR_LEFT') b.bonnieHold = 6;
+        if (s.chars.velvet.room === 'DOOR_LEFT') b.velvetHold = 6;
       } else if (b.lightT >= 2 && b.lightT < 2.5) {
         input.rightLight = true;
         if (s.chars.chica.room === 'DOOR_RIGHT' || s.chars.freddy.room === 'DOOR_RIGHT') {
@@ -48,7 +48,7 @@ function carefulBot() {
       }
     }
 
-    input.leftDoor = b.bonnieHold > 0 || b.foxyAlarm;
+    input.leftDoor = b.velvetHold > 0 || b.foxyAlarm;
     input.rightDoor = b.chicaHold > 0;
     return input;
   };
@@ -71,13 +71,13 @@ function carelessBot() {
 // light checks and a slower reaction at the doors. This is the policy that shows the
 // animatronics can still punish, rather than the night being purely a power puzzle.
 function cameraHappyBot() {
-  const b = { bonnieHold: 0, chicaHold: 0, foxyAlarm: false, camT: 0, lightT: 0, cam: 0 };
+  const b = { velvetHold: 0, chicaHold: 0, foxyAlarm: false, camT: 0, lightT: 0, cam: 0 };
   const CYCLE = ['CAM1C', 'CAM2B', 'CAM4B', 'CAM1C', 'CAM1B', 'CAM4A'];
   return (s) => {
-    if (b.bonnieHold > 0) b.bonnieHold -= DT;
+    if (b.velvetHold > 0) b.velvetHold -= DT;
     if (b.chicaHold > 0) b.chicaHold -= DT;
     const input = {
-      leftDoor: b.bonnieHold > 0 || b.foxyAlarm, rightDoor: b.chicaHold > 0,
+      leftDoor: b.velvetHold > 0 || b.foxyAlarm, rightDoor: b.chicaHold > 0,
       leftLight: false, rightLight: false, camsUp: false, camId: 'CAM1C',
     };
 
@@ -96,14 +96,14 @@ function cameraHappyBot() {
     b.lightT = (b.lightT + DT) % 4;
     if (b.lightT < 0.5) {
       input.leftLight = true;
-      if (s.chars.bonnie.room === 'DOOR_LEFT') b.bonnieHold = 6;
+      if (s.chars.velvet.room === 'DOOR_LEFT') b.velvetHold = 6;
     } else if (b.lightT >= 2 && b.lightT < 2.5) {
       input.rightLight = true;
       if (s.chars.chica.room === 'DOOR_RIGHT' || s.chars.freddy.room === 'DOOR_RIGHT') {
         b.chicaHold = 6;
       }
     }
-    input.leftDoor = b.bonnieHold > 0 || b.foxyAlarm;
+    input.leftDoor = b.velvetHold > 0 || b.foxyAlarm;
     input.rightDoor = b.chicaHold > 0;
     return input;
   };

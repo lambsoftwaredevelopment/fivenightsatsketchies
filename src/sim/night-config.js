@@ -4,36 +4,36 @@
 
 const NIGHTS = {
   1: {
-    base: { freddy: 0, bonnie: 1, chica: 0, foxy: 0 },
+    base: { freddy: 0, velvet: 1, chica: 0, foxy: 0 },
     bumps: {
-      2: { bonnie: 1 },
-      3: { bonnie: 1, chica: 1 },
-      4: { bonnie: 1, chica: 1, foxy: 1 },
+      2: { velvet: 1 },
+      3: { velvet: 1, chica: 1 },
+      4: { velvet: 1, chica: 1, foxy: 1 },
     },
   },
   2: {
-    base: { freddy: 1, bonnie: 3, chica: 2, foxy: 2 },
-    bumps: { 3: { bonnie: 1, chica: 1 }, 5: { foxy: 1 } },
+    base: { freddy: 1, velvet: 3, chica: 2, foxy: 2 },
+    bumps: { 3: { velvet: 1, chica: 1 }, 5: { foxy: 1 } },
   },
   3: {
-    base: { freddy: 2, bonnie: 5, chica: 4, foxy: 4 },
-    bumps: { 4: { freddy: 1, bonnie: 1, chica: 1, foxy: 1 } },
+    base: { freddy: 2, velvet: 5, chica: 4, foxy: 4 },
+    bumps: { 4: { freddy: 1, velvet: 1, chica: 1, foxy: 1 } },
   },
   4: {
-    base: { freddy: 3, bonnie: 6, chica: 5, foxy: 5 },
+    base: { freddy: 3, velvet: 6, chica: 5, foxy: 5 },
     bumps: {
-      3: { freddy: 1, bonnie: 1, chica: 1, foxy: 1 },
-      5: { freddy: 1, bonnie: 1, chica: 1, foxy: 1 },
+      3: { freddy: 1, velvet: 1, chica: 1, foxy: 1 },
+      5: { freddy: 1, velvet: 1, chica: 1, foxy: 1 },
     },
     // Freddy and Foxy are capped: they are the two who force expensive, unavoidable
     // door time, so letting them run free turns the night into a pure power loss.
     caps: { freddy: 5, foxy: 6 },
   },
   5: {
-    base: { freddy: 4, bonnie: 8, chica: 7, foxy: 6 },
+    base: { freddy: 4, velvet: 8, chica: 7, foxy: 6 },
     bumps: {
-      2: { freddy: 1, bonnie: 1, chica: 1, foxy: 1 },
-      4: { freddy: 1, bonnie: 1, chica: 1, foxy: 1 },
+      2: { freddy: 1, velvet: 1, chica: 1, foxy: 1 },
+      4: { freddy: 1, velvet: 1, chica: 1, foxy: 1 },
     },
     caps: { freddy: 6, foxy: 8 },
   },

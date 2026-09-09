@@ -1,6 +1,6 @@
 // The four silhouettes. They are normally seen dark and low-contrast down a hallway, so
 // each gets exactly ONE unmistakable shape cue rather than fine detail:
-//   Bonnie -- tall upright ears.   Chica -- wide body and a split beak.
+//   Velvet -- tall upright ears.   Chica -- wide body and a split beak.
 //   Freddy -- top hat and bow tie. Foxy   -- pointed muzzle, eyepatch, hook.
 // Drawn in a unit space 200 tall with the origin at the feet, then scaled by the caller.
 
@@ -56,8 +56,8 @@ function teeth(ctx, x, y, w, n) {
   }
 }
 
-function bonnie(ctx, pose) {
-  const c = FIG.bonnie;
+function velvet(ctx, pose) {
+  const c = FIG.velvet;
   const dark = pose === 'menace';
   ctx.fillStyle = dark ? '#15121f' : c.body;
   // ears -- the whole point of his silhouette
@@ -228,7 +228,7 @@ function foxy(ctx, pose) {
   if (pose === 'scare') teeth(ctx, -20, -112, 34, 7);
 }
 
-const DRAW = { freddy, bonnie, chica, foxy };
+const DRAW = { freddy, velvet, chica, foxy };
 
 export function drawFigure(ctx, id, x, y, scale, pose) {
   const fn = DRAW[id];

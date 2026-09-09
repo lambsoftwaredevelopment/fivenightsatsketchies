@@ -135,7 +135,7 @@ const EVENT_SFX = {
   'door.close.right': 'doorSlam',
   'door.open.left': 'doorOpen',
   'door.open.right': 'doorOpen',
-  'bonnie.move': 'footstep',
+  'velvet.move': 'footstep',
   'chica.move': 'footstep',
   'chica.bang': 'chicaBang',
   'freddy.laugh': 'freddyLaugh',

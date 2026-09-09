@@ -82,29 +82,29 @@ test('cameras lock out the doors and lights', () => {
 // --- Doors and death --------------------------------------------------------
 
 test('an open door at the resolving opportunity is fatal', () => {
-  const s = isolate(createGame({ night: 1, seed: 7 }), 'bonnie');
-  s.chars.bonnie.room = 'DOOR_LEFT';
-  s.chars.bonnie.timer = 0;
+  const s = isolate(createGame({ night: 1, seed: 7 }), 'velvet');
+  s.chars.velvet.room = 'DOOR_LEFT';
+  s.chars.velvet.timer = 0;
   advance(s, 5.1, IDLE);
   eq(s.phase, 'jumpscare');
-  eq(s.killer, 'bonnie');
+  eq(s.killer, 'velvet');
 });
 
-test('a closed door turns Bonnie away and buys a cooldown', () => {
-  const s = isolate(createGame({ night: 1, seed: 7 }), 'bonnie');
-  s.chars.bonnie.room = 'DOOR_LEFT';
-  s.chars.bonnie.timer = 0;
+test('a closed door turns Velvet away and buys a cooldown', () => {
+  const s = isolate(createGame({ night: 1, seed: 7 }), 'velvet');
+  s.chars.velvet.room = 'DOOR_LEFT';
+  s.chars.velvet.timer = 0;
   advance(s, 5.1, { ...IDLE, leftDoor: true });
   eq(s.phase, 'playing');
   // He falls back two rooms, not to the far end of the building -- so he will be back.
-  eq(s.chars.bonnie.room, 'CAM2A');
-  ok(s.chars.bonnie.cooldown > 0, 'cooldown armed');
+  eq(s.chars.velvet.room, 'CAM2A');
+  ok(s.chars.velvet.cooldown > 0, 'cooldown armed');
 });
 
 test('reaching the door is not instant death -- there is a reaction window', () => {
-  const s = isolate(createGame({ night: 1, seed: 7 }), 'bonnie');
-  s.chars.bonnie.room = 'DOOR_LEFT';
-  s.chars.bonnie.timer = 0;
+  const s = isolate(createGame({ night: 1, seed: 7 }), 'velvet');
+  s.chars.velvet.room = 'DOOR_LEFT';
+  s.chars.velvet.timer = 0;
   advance(s, 4.0, IDLE); // door still open, but his opportunity has not come round
   eq(s.phase, 'playing', 'survives the grace window');
 });
@@ -209,20 +209,20 @@ test('the hour advances every 90 seconds', () => {
 });
 
 test('AI levels escalate across the night and across nights', () => {
-  eq(aiLevelsAt(1, 0).bonnie, 1);
-  eq(aiLevelsAt(1, 4).bonnie, 4, 'bonnie ramps on night 1');
+  eq(aiLevelsAt(1, 0).velvet, 1);
+  eq(aiLevelsAt(1, 4).velvet, 4, 'velvet ramps on night 1');
   eq(aiLevelsAt(1, 0).freddy, 0, 'freddy is dormant on night 1');
-  ok(aiLevelsAt(5, 0).bonnie > aiLevelsAt(1, 0).bonnie, 'night 5 harder than night 1');
+  ok(aiLevelsAt(5, 0).velvet > aiLevelsAt(1, 0).velvet, 'night 5 harder than night 1');
   eq(aiLevelsAt(4, 5).freddy, 5, 'freddy capped on night 4');
   eq(aiLevelsAt(5, 5).freddy, 6, 'freddy capped on night 5');
   eq(aiLevelsAt(5, 5).foxy, 8, 'foxy capped on night 5');
 });
 
 test('the room paths lead to the correct doors', () => {
-  eq(nextRoom('bonnie', 'CAM2B'), 'DOOR_LEFT');
+  eq(nextRoom('velvet', 'CAM2B'), 'DOOR_LEFT');
   eq(nextRoom('chica', 'CAM4B'), 'DOOR_RIGHT');
   eq(nextRoom('freddy', 'CAM4B'), 'DOOR_RIGHT');
-  eq(nextRoom('bonnie', 'DOOR_LEFT'), null, 'the door is the end of the path');
+  eq(nextRoom('velvet', 'DOOR_LEFT'), null, 'the door is the end of the path');
 });
 
 test('the same seed replays identically', () => {

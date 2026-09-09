@@ -6,7 +6,7 @@ import * as C from './constants.js';
 import { makeRng } from '../core/rng.js';
 import { aiLevelsAt } from './night-config.js';
 import { applyDrain, beginBlackout, stepBlackout, computeUsage } from './power.js';
-import { stepBonnie, stepChica, stepFreddy, stepFoxy } from './animatronics.js';
+import { stepVelvet, stepChica, stepFreddy, stepFoxy } from './animatronics.js';
 
 export function createGame({ night = 1, seed = 12345 } = {}) {
   const rng = makeRng(seed);
@@ -25,7 +25,7 @@ export function createGame({ night = 1, seed = 12345 } = {}) {
     cams: { up: false, id: 'CAM1A' },
     chars: {
       freddy: { room: 'CAM1A', timer: 0, cooldown: 0, interval: C.INTERVAL.freddy, doorGrace: C.DOOR_GRACE.freddy },
-      bonnie: { room: 'CAM1A', timer: 0, cooldown: 0, interval: C.INTERVAL.bonnie, doorGrace: C.DOOR_GRACE.bonnie },
+      velvet: { room: 'CAM1A', timer: 0, cooldown: 0, interval: C.INTERVAL.velvet, doorGrace: C.DOOR_GRACE.velvet },
       chica: { room: 'CAM1A', timer: 0, cooldown: 0, bangTimer: 0, interval: C.INTERVAL.chica, doorGrace: C.DOOR_GRACE.chica },
       foxy: { stage: 0, timer: 0, bangs: 0, runT: null, room: 'CAM1C', interval: C.INTERVAL.foxy },
     },
@@ -108,7 +108,7 @@ export function stepGame(state, dt, input) {
 
   const ai = aiLevelsAt(state.night, state.hour);
   stepFreddy(state, ai.freddy);
-  stepBonnie(state, ai.bonnie);
+  stepVelvet(state, ai.velvet);
   stepChica(state, ai.chica);
   stepFoxy(state, ai.foxy);
 

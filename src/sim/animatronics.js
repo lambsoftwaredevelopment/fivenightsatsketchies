@@ -1,6 +1,6 @@
 // The four behaviour rules. Each character is countered by a *different* player action,
 // which is what turns the night into a juggling act instead of one repeated move:
-//   Bonnie -- the door.            Chica  -- the door, but she taxes your battery.
+//   Velvet -- the door.            Chica  -- the door, but she taxes your battery.
 //   Foxy   -- watching him.        Freddy -- NOT watching him.
 
 import * as C from './constants.js';
@@ -74,13 +74,13 @@ function stepWalker(state, key, ai, onRetreat) {
   }
 }
 
-// --- Bonnie -----------------------------------------------------------------
+// --- Velvet -----------------------------------------------------------------
 // Immune to cameras; beaten purely by the left door. Always retreats when blocked.
-export function stepBonnie(state, ai) {
-  stepWalker(state, 'bonnie', ai, (c) => {
-    c.room = backOff('bonnie', c.room, 2);
-    c.cooldown = C.BONNIE_COOLDOWN;
-    state.events.push('bonnie.retreat');
+export function stepVelvet(state, ai) {
+  stepWalker(state, 'velvet', ai, (c) => {
+    c.room = backOff('velvet', c.room, 2);
+    c.cooldown = C.VELVET_COOLDOWN;
+    state.events.push('velvet.retreat');
   });
 }
 

@@ -26,7 +26,7 @@ const SPOT = {
 
 function occupants(state, roomId) {
   const out = [];
-  for (const k of ['freddy', 'bonnie', 'chica']) {
+  for (const k of ['freddy', 'velvet', 'chica']) {
     if (state.chars[k].room === roomId) out.push(k);
   }
   return out;

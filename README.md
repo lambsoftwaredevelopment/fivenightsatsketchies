@@ -32,7 +32,7 @@ use it carelessly. **Doors and lights are locked out while the cameras are up.**
 Each one is beaten by a *different* action, which is what makes the night a juggling act
 rather than one repeated move:
 
-- **Bonnie** — comes down the west hall to the left door. Immune to the cameras; the
+- **Velvet** — comes down the west hall to the left door. Immune to the cameras; the
   door is the only answer. Reaching your door is not instant death: you get one
   door-grace window (5s) to flick the light and react.
 - **Chica** — the same on the right, but she only leaves half the time, so she squats at
@@ -86,8 +86,8 @@ a loaded `<img>` are both valid `drawImage` sources, so replacing the placeholde
 means changing one field per entry:
 
 ```js
-'fig.bonnie.idle': { src: PROCEDURAL, gen: 'figure', ... }
-'fig.bonnie.idle': { src: 'art/bonnie-idle.png' }
+'fig.velvet.idle': { src: PROCEDURAL, gen: 'figure', ... }
+'fig.velvet.idle': { src: 'art/velvet-idle.png' }
 ```
 
 No call site changes. Entries are deliberately *per layer*, not per screen — a single

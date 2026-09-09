@@ -1,7 +1,7 @@
 // The swap point for real art. Every entry is currently PROCEDURAL, meaning it is drawn
 // in code into an offscreen canvas at load. Because a generated <canvas> and a loaded
 // <img> are both valid drawImage sources, dropping in real sprites later is a one-line
-// change per entry -- `src: PROCEDURAL` becomes `src: 'art/bonnie-idle.png'` -- and no
+// change per entry -- `src: PROCEDURAL` becomes `src: 'art/velvet-idle.png'` -- and no
 // call site changes.
 //
 // Entries are deliberately PER LAYER, not per screen: a single flat "office" image
@@ -16,7 +16,7 @@ const ROOM_H = 540;
 
 function figures() {
   const out = {};
-  for (const id of ['freddy', 'bonnie', 'chica', 'foxy']) {
+  for (const id of ['freddy', 'velvet', 'chica', 'foxy']) {
     for (const pose of ['idle', 'menace', 'scare']) {
       out['fig.' + id + '.' + pose] = {
         src: PROCEDURAL, gen: 'figure', w: FIG_W, h: FIG_H, args: { id, pose },

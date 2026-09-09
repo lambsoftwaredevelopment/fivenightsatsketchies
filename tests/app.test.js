@@ -82,7 +82,7 @@ test('every scene renders without throwing', () => {
   const saved = g.app.scene;
   for (const sc of scenes) {
     g.app.scene = sc;
-    g.app.game.killer = 'bonnie';
+    g.app.game.killer = 'velvet';
     g.draw(1.0);
     // and again with the cameras up, which is a different path entirely
     if (sc === 'night') {
@@ -141,10 +141,10 @@ test('game over offers a retry that restarts the same night', () => {
   g.app.scene = 'menu';
   g.clickAt(center(NIGHT_BTN.night3).x, center(NIGHT_BTN.night3).y);
   step(g, 3.2);
-  g.app.game.chars.bonnie.room = 'DOOR_LEFT';
-  g.app.game.chars.bonnie.timer = 0;
-  step(g, 5.4); // his door-grace window elapses at 5s with the door open
-  eq(g.app.scene, 'jumpscare', 'bonnie got in');
+  g.app.game.chars.velvet.room = 'DOOR_LEFT';
+  g.app.game.chars.velvet.timer = 0;
+  step(g, 5.4); // their door-grace window elapses at 5s with the door open
+  eq(g.app.scene, 'jumpscare', 'velvet got in');
   step(g, 2.2);
   eq(g.app.scene, 'gameover');
   step(g, 0.8);
@@ -165,7 +165,7 @@ test('a lit doorway with someone in it is not painted over by the frame', () => 
   step(g, 3.2);
 
   const s = g.app.game;
-  s.chars.bonnie.room = 'DOOR_LEFT';
+  s.chars.velvet.room = 'DOOR_LEFT';
   g.input.state.panX = 0;
   g.input.state.lights.left = true;
   step(g, 0.6, true);
